@@ -1,54 +1,59 @@
-// Initialize Swiper
-const heroSwiper = new Swiper('.heroSwiper', {
-  loop: true,
-  speed: 800,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+// Initialize sliders only when Swiper library + related elements exist.
+if (typeof Swiper !== 'undefined') {
+  if (document.querySelector('.heroSwiper')) {
+    new Swiper('.heroSwiper', {
+      loop: true,
+      speed: 800,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
 
-// Clients Logos Slider
-const clientsSwiper = new Swiper('.clientsSwiper', {
-  loop: true,
-  speed: 600,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 2,
-  spaceBetween: 20,
-  breakpoints: {
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-    },
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 50,
-    },
-    1200: {
-      slidesPerView: 6,
-      spaceBetween: 50,
-    },
-  },
-});
+  if (document.querySelector('.clientsSwiper')) {
+    new Swiper('.clientsSwiper', {
+      loop: true,
+      speed: 600,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 2,
+      spaceBetween: 20,
+      breakpoints: {
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+        1200: {
+          slidesPerView: 6,
+          spaceBetween: 50,
+        },
+      },
+    });
+  }
+}
 
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
@@ -70,13 +75,15 @@ function closeMenuFn() {
   document.body.style.overflow = '';
 }
 
-menuToggle.addEventListener('click', openMenu);
-closeMenu.addEventListener('click', closeMenuFn);
-overlay.addEventListener('click', closeMenuFn);
+if (menuToggle && navMenu && closeMenu && overlay) {
+  menuToggle.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeMenuFn);
+  overlay.addEventListener('click', closeMenuFn);
+}
 
 // Close menu on resize to desktop
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 768 && navMenu && closeMenu && overlay) {
     closeMenuFn();
   }
 });
