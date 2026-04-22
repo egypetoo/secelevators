@@ -1193,6 +1193,29 @@ img {
   color: #fff;
 }
 
+.floating-contact-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff5b5b 0%, #e60000 100%);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 10px 25px rgba(230, 0, 0, 0.35);
+  z-index: 11000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-contact-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(230, 0, 0, 0.45);
+}
+
 .footer-social {
   display: flex;
   align-items: center;
@@ -1605,6 +1628,14 @@ img {
 
   .slide-content p {
     font-size: 11px;
+  }
+
+  .floating-contact-btn {
+    width: 52px;
+    height: 52px;
+    right: 14px;
+    bottom: 14px;
+    font-size: 22px;
   }
 }
 

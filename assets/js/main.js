@@ -95,3 +95,14 @@ if (scrollTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// Floating call button
+if (!document.querySelector('.floating-contact-btn')) {
+  const callBtn = document.createElement('a');
+  callBtn.href = 'tel:22620203';
+  callBtn.className = 'floating-contact-btn';
+  callBtn.setAttribute('aria-label', 'اتصال هاتفي');
+  callBtn.setAttribute('title', 'اتصال سريع');
+  callBtn.innerHTML = '<i class="fas fa-comments"></i>';
+  document.body.appendChild(callBtn);
+}
