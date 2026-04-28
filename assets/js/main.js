@@ -96,13 +96,36 @@ if (scrollTopBtn) {
   });
 }
 
-// Floating call button
-if (!document.querySelector('.floating-contact-btn')) {
+// Floating contact buttons
+if (!document.querySelector('.floating-actions')) {
+  const actions = document.createElement('div');
+  actions.className = 'floating-actions';
+
   const callBtn = document.createElement('a');
   callBtn.href = 'tel:22620203';
   callBtn.className = 'floating-contact-btn';
   callBtn.setAttribute('aria-label', 'اتصال هاتفي');
   callBtn.setAttribute('title', 'اتصال سريع');
-  callBtn.innerHTML = '<i class="fas fa-comments"></i>';
-  document.body.appendChild(callBtn);
+  callBtn.innerHTML = '<i class="fas fa-phone"></i>';
+
+  const whatsappBtn = document.createElement('a');
+  whatsappBtn.href = 'https://wa.me/96522620203';
+  whatsappBtn.target = '_blank';
+  whatsappBtn.rel = 'noopener noreferrer';
+  whatsappBtn.className = 'floating-contact-btn floating-contact-btn--whatsapp';
+  whatsappBtn.setAttribute('aria-label', 'واتساب');
+  whatsappBtn.setAttribute('title', 'تواصل واتساب');
+  whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+
+  const emailBtn = document.createElement('a');
+  emailBtn.href = 'mailto:info@secelevators.com';
+  emailBtn.className = 'floating-contact-btn floating-contact-btn--email';
+  emailBtn.setAttribute('aria-label', 'إرسال بريد إلكتروني');
+  emailBtn.setAttribute('title', 'إرسال بريد');
+  emailBtn.innerHTML = '<i class="fas fa-envelope"></i>';
+
+  actions.appendChild(callBtn);
+  actions.appendChild(whatsappBtn);
+  actions.appendChild(emailBtn);
+  document.body.appendChild(actions);
 }

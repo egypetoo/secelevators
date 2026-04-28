@@ -1193,10 +1193,17 @@ img {
   color: #fff;
 }
 
-.floating-contact-btn {
+.floating-actions {
   position: fixed;
   right: 22px;
   bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 11000;
+}
+
+.floating-contact-btn {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -1214,6 +1221,24 @@ img {
 .floating-contact-btn:hover {
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 14px 28px rgba(230, 0, 0, 0.45);
+}
+
+.floating-contact-btn--whatsapp {
+  background: linear-gradient(180deg, #40d66a 0%, #1fae48 100%);
+  box-shadow: 0 10px 25px rgba(31, 174, 72, 0.35);
+}
+
+.floating-contact-btn--whatsapp:hover {
+  box-shadow: 0 14px 28px rgba(31, 174, 72, 0.45);
+}
+
+.floating-contact-btn--email {
+  background: linear-gradient(180deg, #7b8794 0%, #5f6975 100%);
+  box-shadow: 0 10px 25px rgba(95, 105, 117, 0.35);
+}
+
+.floating-contact-btn--email:hover {
+  box-shadow: 0 14px 28px rgba(95, 105, 117, 0.45);
 }
 
 .footer-social {
@@ -1630,11 +1655,14 @@ img {
     font-size: 11px;
   }
 
+  .floating-actions {
+    right: 14px;
+    bottom: 14px;
+  }
+
   .floating-contact-btn {
     width: 52px;
     height: 52px;
-    right: 14px;
-    bottom: 14px;
     font-size: 22px;
   }
 }
