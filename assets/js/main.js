@@ -66,6 +66,7 @@ function openMenu() {
   overlay.classList.add('show');
   closeMenu.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  if (navbar) navbar.classList.add('menu-open');
 }
 
 function closeMenuFn() {
@@ -73,12 +74,22 @@ function closeMenuFn() {
   overlay.classList.remove('show');
   closeMenu.style.display = 'none';
   document.body.style.overflow = '';
+  if (navbar) navbar.classList.remove('menu-open');
 }
 
 if (menuToggle && navMenu && closeMenu && overlay) {
   menuToggle.addEventListener('click', openMenu);
   closeMenu.addEventListener('click', closeMenuFn);
   overlay.addEventListener('click', closeMenuFn);
+}
+
+const navbar = document.querySelector('.navbar');
+if (navbar && document.body.classList.contains('home')) {
+  const updateNavbar = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  };
+  updateNavbar();
+  window.addEventListener('scroll', updateNavbar, { passive: true });
 }
 
 // Close menu on resize to desktop
